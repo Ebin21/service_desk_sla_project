@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Login | ServiceDesk{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-5"><div class="col-md-5"><div class="card p-4">
+<h2 class="h4 mb-3">Sign in</h2><p class="small-muted">Use your project account to access tickets and reports.</p>
+<form method="post">{% csrf_token %}
+{% if form.errors %}<div class="alert alert-danger">Username or password is incorrect.</div>{% endif %}
+<div class="mb-3"><label class="form-label" for="id_username">Username</label><input class="form-control" type="text" name="username" id="id_username" required autofocus></div>
+<div class="mb-3"><label class="form-label" for="id_password">Password</label><input class="form-control" type="password" name="password" id="id_password" required></div>
+<input type="hidden" name="next" value="{{ next }}"><button class="btn btn-primary w-100">Login</button>
+</form></div></div></div>
+{% endblock %}
